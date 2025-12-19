@@ -91,6 +91,11 @@ def run_interactive_session():
         # Display drill prescription
         print(engine.format_drill_display(drill))
         
+        # Check if new position is valid
+        if not new_position:
+            print("\nError: Unable to transition to new position.")
+            break
+        
         # Ask if user wants to continue
         print(f"\nYou are now in: {new_position.name}")
         continue_choice = input("\nPress Enter to continue, or type 'quit' to end: ").strip().lower()

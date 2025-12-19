@@ -7,7 +7,6 @@ Users explore opponent reactions and receive drill prescriptions.
 
 from typing import List, Optional, Tuple
 from bjj_domain import BJJGraph, Position, Transition, DrillPrescription
-import random
 
 
 class NarrativeSession:
@@ -29,7 +28,7 @@ class NarrativeSession:
         # Sort by probability (highest first) for better UX
         return sorted(transitions, key=lambda t: t.probability, reverse=True)
     
-    def take_action(self, transition: Transition) -> Tuple[Position, DrillPrescription]:
+    def take_action(self, transition: Transition) -> Tuple[Optional[Position], Optional[DrillPrescription]]:
         """
         Execute a transition and receive drill prescription.
         Returns the new position and the drill to practice.
